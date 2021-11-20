@@ -1,4 +1,4 @@
-
+//HARSHIT SEN /
 #include <stdio.h>
 #include <stdlib.h>
 struct node
@@ -15,6 +15,11 @@ struct node *getanode(int data)
     newnode->right = newnode->left = NULL;
     return newnode;
 }
+int max(int a,int b)
+{
+ return a>b ? a:b;
+
+}
 struct node *insert(struct node *root, int data)
 {
     if (root == NULL)
@@ -30,7 +35,7 @@ struct node *insert(struct node *root, int data)
         root->right = insert(root->right, data);
     }
     return root;
-    9
+    
 }
 int search(struct node *root, int key)
 {
@@ -80,6 +85,16 @@ int findmax(struct node *root)
     }
     return temp->data;
 }
+int find_height(struct node * root)
+{
+    if(root==NULL)
+    {
+       return -1;
+    }
+    
+        
+    return max(find_height(root->left),find_height(root->right))+1;
+}
 int main()
 {
     struct node *root = NULL;
@@ -95,5 +110,7 @@ int main()
     printf("\nEnter value to be searched:");
     scanf("%d", &key);
     printf("%d", search(root, key));
+    printf("\n%d",find_height(root));
+    
     return 0;
 }
