@@ -95,6 +95,16 @@ int find_height(struct node * root)
         
     return max(find_height(root->left),find_height(root->right))+1;
 }
+void preorder(struct  node* root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    printf("%d  ", root->data);
+    preorder(root->left);
+    preorder(root->right);
+}
 int main()
 {
     struct node *root = NULL;
@@ -111,6 +121,7 @@ int main()
     scanf("%d", &key);
     printf("%d", search(root, key));
     printf("\n%d",find_height(root));
-    
+    printf("PREORDER::");
+    preorder(root);
     return 0;
 }
