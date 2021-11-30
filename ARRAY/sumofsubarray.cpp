@@ -14,7 +14,7 @@ int main()
           {
               if(currentsum==sum)
               {
-                  cout<<"sum found from index"<<i<<"to"<<j;
+                  cout<<"sum found from index"<<i<<"to"<<j<<endl;
                   break;
               }
               else if(currentsum>sum)
