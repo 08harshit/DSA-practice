@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>//harshit
 using namespace std;
 void rearrange(int arr[], int n)
 {
@@ -16,7 +16,7 @@ void rearrange(int arr[], int n)
         {
             arr[i] += arr[min_in] % max_element * max_element;
 
-            min_in--;
+            min_in++;
         }
     }
 for(int j=0;j<n;j++)

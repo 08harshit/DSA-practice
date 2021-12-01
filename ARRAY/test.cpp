@@ -1,37 +1,55 @@
 
-// A C++ program to sort an array in wave form using
-// a sorting function
-#include<iostream>
-#include<algorithm>
+// C++ program to rearrange an array in minimum
+// maximum form
+#include <bits/stdc++.h>
 using namespace std;
 
-// A utility method to swap two numbers.
-void swap(int *x, int *y)
+// Prints max at first position, min at second position
+// second max at third position, second min at fourth
+// position and so on.
+void rearrange(int arr[], int n)
 {
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
+    // initialize index of first minimum and first
+    // maximum element
+    int max_idx = n - 1, min_idx = 0;
 
-// This function sorts arr[0..n-1] in wave form, i.e., 
-// arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= arr[5]..
-void sortInWave(int arr[], int n)
-{
-    // Sort the input array
-    sort(arr, arr+n);
+    // store maximum element of array
+    int max_elem = arr[n - 1] + 1;
 
-    // Swap adjacent elements
-    for (int i=0; i<n-1; i += 2)
-        swap(&arr[i], &arr[i+1]);
+    // traverse array elements
+    for (int i = 0; i < n; i++) {
+        // at even index : we have to put maximum element
+        if (i % 2 == 0) {
+            arr[i] += (arr[max_idx] % max_elem) * max_elem;
+            max_idx--;
+        }
+
+        // at odd index : we have to put minimum element
+        else {
+            arr[i] += (arr[min_idx] % max_elem) * max_elem;
+            min_idx++;
+        }
+    }
+
+    // array elements back to it's original form
+    for (int i = 0; i < n; i++)
+        arr[i] = arr[i] / max_elem;
 }
 
 // Driver program to test above function
 int main()
 {
-    int arr[] = {1, 5, 3, 7, 9, 2};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    sortInWave(arr, n);
-    for (int i=0; i<n; i++)
-       cout << arr[i] << " ";
+    int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Original Arrayn";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+
+    rearrange(arr, n);
+
+    cout << "\nModified Array\n";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
     return 0;
 }
