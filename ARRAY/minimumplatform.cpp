@@ -22,8 +22,8 @@ using namespace std;
 int main()
 {
 
-    int ari[] = {900, 1100, 1235};
-    int dep[] = {1000, 1200, 1240};
+    int ari[] = {900, 940, 950, 1100, 1500, 1800};
+    int dep[] = {910, 1200, 1120, 1130, 1900, 2000};
     int n = sizeof(ari) / sizeof(ari[0]);
     platform(ari, dep, n);
     return 0;
