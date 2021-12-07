@@ -1,4 +1,4 @@
-//HARSHIT SEN// 
+//HARSHIT SEN//
 #include <stdio.h>
 #include <stdlib.h>
 struct node
@@ -15,10 +15,9 @@ struct node *getanode(int data)
     newnode->right = newnode->left = NULL;
     return newnode;
 }
-int max(int a,int b)
+int max(int a, int b)
 {
- return a>b ? a:b;
-
+    return a > b ? a : b;
 }
 struct node *insert(struct node *root, int data)
 {
@@ -35,7 +34,6 @@ struct node *insert(struct node *root, int data)
         root->right = insert(root->right, data);
     }
     return root;
-    
 }
 int search(struct node *root, int key)
 {
@@ -85,19 +83,18 @@ int findmax(struct node *root)
     }
     return temp->data;
 }
-int find_height(struct node * root)
+int find_height(struct node *root)
 {
-    if(root==NULL)
+    if (root == NULL)
     {
-       return -1;
+        return -1;
     }
-    
-        
-    return max(find_height(root->left),find_height(root->right))+1;
+
+    return max(find_height(root->left), find_height(root->right)) + 1;
 }
-void preorder(struct  node* root)
+void preorder(struct node *root)
 {
-    if(root==NULL)
+    if (root == NULL)
     {
         return;
     }
@@ -109,7 +106,7 @@ int main()
 {
     struct node *root = NULL;
     root = insert(root, 5);
-      root = insert(root, 7);
+    root = insert(root, 7);
     root = insert(root, 88);
     root = insert(root, 1);
     root = insert(root, 99);
@@ -120,7 +117,7 @@ int main()
     printf("\nEnter value to be searched:");
     scanf("%d", &key);
     printf("%d", search(root, key));
-    printf("\n%d",find_height(root));
+    printf("\n%d", find_height(root));
     printf("\nPREORDER::");
     preorder(root);
     return 0;

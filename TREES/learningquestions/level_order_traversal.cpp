@@ -3,9 +3,9 @@
 using namespace std;
 struct node
 {
-    int data;
-     node *left;
-     node *right;
+    char data;
+    node *left;
+    node *right;
 };
 
 node *insert(struct node *root, char x)
@@ -34,13 +34,14 @@ void level(node *root)
         printf("EMPTY");
         return;
     }
-    queue<node*> Q;
+    queue<node *> Q;
     Q.push(root);
     while (!Q.empty())
     {
         node *current = Q.front();
-       Q.pop();
+        
         cout << current->data;
+        
         if (current->left != NULL)
         {
             Q.push(current->left);
@@ -49,16 +50,19 @@ void level(node *root)
         {
             Q.push(current->right);
         }
+        Q.pop();
+
     }
 }
 int main()
-{   node* root=NULL;
+{
+    node *root = NULL;
     root = insert(root, 'M');
     root = insert(root, 'B');
     root = insert(root, 'Q');
     root = insert(root, 'Z');
     root = insert(root, 'A');
     root = insert(root, 'C');
-    
+
     level(root);
 }

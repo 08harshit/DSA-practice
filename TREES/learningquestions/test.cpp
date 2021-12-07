@@ -38,7 +38,7 @@ Node* Insert(Node *root,char data) {
 int main() {
 	/*Code To Test the logic
 	  Creating an example tree
-	                    M
+	            M
 			   / \
 			  B   Q
 			 / \   \
