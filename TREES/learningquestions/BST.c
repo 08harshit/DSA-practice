@@ -1,4 +1,4 @@
-//HARSHIT SEN 
+//HARSHIT SEN// 
 #include <stdio.h>
 #include <stdlib.h>
 struct node
@@ -109,7 +109,7 @@ int main()
 {
     struct node *root = NULL;
     root = insert(root, 5);
-    root = insert(root, 7);
+      root = insert(root, 7);
     root = insert(root, 88);
     root = insert(root, 1);
     root = insert(root, 99);
@@ -121,7 +121,7 @@ int main()
     scanf("%d", &key);
     printf("%d", search(root, key));
     printf("\n%d",find_height(root));
-    printf("PREORDER::");
+    printf("\nPREORDER::");
     preorder(root);
     return 0;
 }
