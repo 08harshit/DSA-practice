@@ -1,7 +1,5 @@
-#include <iostream>
-//HARSHIT SEN
+#include <iostream> //HARSHIT SEN
 using namespace std;
-
 struct node
 {
     int data;
@@ -20,44 +18,41 @@ void inserthead(int item)
 }
 void display()
 {
-    node *trev = new node;
-    trev = head;
-    while (trev != NULL)
+    node *temp = new node;
+    temp = head;
+    while (temp != NULL)
     {
-        cout << trev->data << "->";
-        trev = trev->next;
+        cout << temp->data << "-> ";
+        temp = temp->next;
     }
     cout << "NULL" << endl;
 }
-void remove_duplicate()
+void front()
 {
+    node *temp = NULL;
     node *trev = head;
     while (trev->next != NULL)
     {
-        if (trev->data == trev->next->data)
-        {
-            trev->next = trev->next->next;
-        }
-
-        else
-        {
-            trev = trev->next;
-        }
+        temp = trev;
+        trev = trev->next;
     }
+    trev->next = head;
+    head = trev;
+    temp->next = NULL;
 }
-
 int main()
 {
+    inserthead(7);
+    inserthead(6);
+    inserthead(5);
+    inserthead(4);
+    inserthead(3);
+    inserthead(2);
     inserthead(1);
-    inserthead(1);
-    inserthead(1);
-    inserthead(1);
-    inserthead(1);
-    inserthead(1);
-    inserthead(1);
-    
+    inserthead(0);
     display();
-    remove_duplicate();
+    front();
     display();
+
     return 0;
 }
