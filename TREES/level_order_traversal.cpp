@@ -40,8 +40,8 @@ void level(node *root)
     {
         node *current = Q.front();
         
-        cout << current->data;
         
+        cout<<current->data;
         if (current->left != NULL)
         {
             Q.push(current->left);
@@ -50,8 +50,8 @@ void level(node *root)
         {
             Q.push(current->right);
         }
+        
         Q.pop();
-
     }
 }
 int main()

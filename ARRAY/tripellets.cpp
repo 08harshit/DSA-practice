@@ -1,4 +1,4 @@
-#include <iostream> //HARSHIT SEN
+#include<iostream> //HARSHIT SEN
 using namespace std;
 void triplet(int arr[], int n)
 {
